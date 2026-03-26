@@ -21,7 +21,7 @@ and https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview
 BEFORE RUNNING, on Terminal:
    # cd to a folder to receive
    git clone https://github.com/bomonike/claude-templates.git --depth 1
-   cd claude-proj1
+   cd claude-templates
    python -m venv .venv   # creates bin, include, lib, pyvenv.cfg
    uv venv .venv  --clear
    source .venv/bin/activate
@@ -37,7 +37,7 @@ AFTER RUN:
     rm -rf .venv .pytest_cache __pycache__
 """
 
-__last_change__ = "26-03-25 v001 new with time zone calc :weather-sdk.py"
+__last_change__ = "26-03-25 v002 rm claude-proj1 :weather-sdk.py"
 __status__ = "WORKS on macOS Sequoia 15.6.1"
 
 # TODO: https://platform.claude.com/docs/en/build-with-claude/working-with-messages
