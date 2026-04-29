@@ -1,3 +1,5 @@
+# gxp "26-03 v003 add hooks & settings :.gitignore"
+
 .DS_Store
 
 # Virtual environments
@@ -124,4 +126,11 @@ dist/
 wheels/
 *.egg-info
 
+# Exclude runtime/generated files from Claude hooks
+hooks/*.log
+hooks/debug.log
+hooks/todo-enforcer.config.json
 
+# Exclude local settings (contains machine-specific paths)
+settings.json
+settings.local.json
