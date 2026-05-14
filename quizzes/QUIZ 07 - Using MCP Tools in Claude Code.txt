@@ -1,0 +1,78 @@
+TOPIC: MCP
+
+Question 1:
+What does an MCP Tool primarily do in Claude Code?
+
+Options:
+a. Replaces sub-agents
+b. Acts as an interface between Claude and external tools
+c. Handles file versioning
+
+Correct Answer: b.
+
+📝 Additional Info:
+MCP Tools connect Claude Code to third-party systems or APIs, letting it perform actions like testing or data fetching seamlessly.
+
+
+
+
+Question 2:
+Which of the following best describes the MCP architecture?
+
+Options:
+a. Local script → IDE → Compiler
+b. Client ↔ Host ↔ Server
+c. LLM → Database → Web UI
+
+Correct Answer: b.
+
+📝 Additional Info:
+MCP uses a client-host-server model where Claude (the client) communicates with an MCP host that connects to external tools or APIs.
+
+
+
+
+Question 3:
+What is the purpose of installing the Playwright MCP Tool in Claude Code?
+
+Options:
+a. To perform automated UI testing and validation
+b. To manage GitHub issues
+c. To generate text summaries
+
+Correct Answer: a.
+
+📝 Additional Info:
+The Playwright MCP Tool integrates testing directly into Claude Code, allowing the AI to automate browser-based validation during development.
+
+
+
+
+Question 4:
+What must be configured after installing an MCP tool to connect it to Claude Code?
+
+Options:
+a. Claude memory limit
+b. API key and connection settings
+c. Project markdown file
+
+Correct Answer: b.
+
+📝 Additional Info:
+To connect an MCP Tool securely, you need to add the appropriate API credentials and configuration settings so Claude can interact with it.
+
+
+
+
+Question 5:
+When should you use an MCP Tool instead of a sub-agent?
+
+Options:
+a. When you need Claude to collaborate with another AI model
+b. When connecting Claude to an external system or API
+c. When building a standalone workflow
+
+Correct Answer: b.
+
+📝 Additional Info:
+Sub-agents handle internal automation, while MCP Tools are best for linking Claude with outside tools, services, or APIs.

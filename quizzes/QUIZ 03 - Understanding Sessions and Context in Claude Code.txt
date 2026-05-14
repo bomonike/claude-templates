@@ -1,0 +1,62 @@
+TOPIC: Sessions
+
+Question 1:
+What does a “session” represent in Claude Code?
+
+Options:
+a. An active conversation or coding context maintained for a project
+b. A storage file for dependencies
+c. A terminal command used to clear memory
+
+Correct Answer: a.
+
+📝 Additional Info:
+A session is an active workspace Claude uses to remember your ongoing context — code files, goals, and previous interactions — to keep responses relevant.
+
+
+
+
+Question 2:
+Why should you periodically clear or compact your session context?
+
+Options:
+a. To remove outdated or irrelevant data and improve response accuracy
+b. To speed up your computer
+c. To close all open files in VS Code
+
+Correct Answer: a.
+
+📝 Additional Info:
+Clearing or compacting session context prevents Claude from referencing old or conflicting data. It helps maintain focus and ensures the AI’s responses stay precise.
+
+
+
+
+Question 3:
+During bug fixing, what’s the best way to ensure Claude stays on track with your problem?
+
+Options:
+a. Keep every past conversation active
+b. Ask Claude to handle the whole project automatically
+c. Provide clear, specific context and reset or summarize when needed
+
+Correct Answer: c.
+
+📝 Additional Info:
+Giving Claude targeted, relevant context — and occasionally summarizing or resetting — helps it stay aligned with your current debugging goal and produce better code suggestions.
+
+
+
+
+Question 4:
+What happens when the context limit is reached in a Claude Code session?
+
+Options:
+a. Claude automatically increases the limit
+b. The session restarts automatically with no history
+c. Older or less relevant parts of the session are dropped or forgotten
+
+Correct Answer: c.
+
+📝 Additional Info:
+Claude operates within a fixed context window. When this limit is reached, older or less relevant information gets dropped. This prevents overload but can also cause loss of earlier context if not managed properly.

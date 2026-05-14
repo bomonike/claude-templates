@@ -1,0 +1,77 @@
+TOPIC: Slash Workflow
+
+Question 1:
+What is the main purpose of slash commands in Claude Code?
+
+Options:
+a. To run terminal scripts only
+b. To quickly trigger predefined tasks and workflows
+c. To edit your project’s JSON files
+
+Correct Answer: b.
+
+📝 Additional Info:
+Slash commands are shortcuts that let you quickly execute actions like debugging, refactoring, or managing sessions — without writing long prompts.
+
+
+
+
+Question 2:
+Where can you define custom slash commands in Claude Code?
+
+Options:
+a. Inside the claude.md file
+b. In the plugin UI only
+c. In configuration files at the project or user level
+
+Correct Answer: c.
+
+📝 Additional Info:
+Custom slash commands are usually defined in project or user-level configuration files to make them reusable and personalized.
+
+
+
+Question 3:
+Why might you use arguments in a custom slash command?
+
+Options:
+a. To make commands flexible and reusable for different inputs
+b. To limit Claude’s context size
+c. To reset Claude Code settings
+
+Correct Answer: a.
+
+📝 Additional Info:
+Arguments allow you to pass variables or parameters to a custom command, making it adaptable to multiple tasks or files.
+
+
+
+
+Question 4:
+What does the settings.local.json file control in Claude Code?
+
+Options:
+a. File permissions for your IDE
+b. AI model configuration and memory
+c. Permissions for commands (allow, deny, or ask)
+
+Correct Answer: c.
+
+📝 Additional Info:
+The settings.local.json file manages command permissions, letting you decide whether Claude Code should automatically execute, ask, or block certain actions for better security.
+
+
+
+
+Question 5:
+What is the main purpose of hooks in Claude Code?
+
+Options:
+a. To schedule code deployments automatically
+b. To connect workflows to real-time events and automate actions
+c. To store command history locally
+
+Correct Answer: b.
+
+📝 Additional Info:
+Hooks let you trigger automated actions or notifications based on real-time events in your workflow — for example, sending alerts or executing tasks when specific conditions are met.

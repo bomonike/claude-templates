@@ -1,0 +1,3 @@
+Add both resources in Section09-003- Building Your First Custom MCP Tool
+
+GitHub URL - https://github.com/arunprabusamy/HourToLearnMCP

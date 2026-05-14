@@ -1,0 +1,66 @@
+TOPIC: Sub-agents
+
+Question 1:
+What is the primary purpose of a sub-agent in Claude Code?
+
+Options:
+a. To store long-term memory
+b. To compile and run your code
+c. To handle specific tasks or roles independently
+
+Correct Answer:
+To handle specific tasks or roles independently
+
+📝 Additional Info:
+Sub-agents are specialized assistants that can take on defined responsibilities—like UI design or testing—so Claude can delegate tasks intelligently.
+
+
+
+Question 2:
+Which of the following is a key benefit of using sub-agents?
+
+Options:
+a. They replace MCP tools completely
+b. They automate repetitive or domain-specific workflows
+c. They only run locally without Claude
+
+Correct Answer:
+They automate repetitive or domain-specific workflows
+
+📝 Additional Info:
+Sub-agents let you offload specialized tasks (like testing or code reviews), improving efficiency and automation in your workflow.
+
+
+
+
+
+Question 3:
+How do sub-agents differ from MCP Tools in Claude Code?
+
+Options:
+a. MCP Tools are internal; sub-agents connect to external APIs
+b. Both are identical and interchangeable
+c. Sub-agents are internal AI roles; MCP Tools connect to external systems
+
+Correct Answer:
+Sub-agents are internal AI roles; MCP Tools connect to external systems
+
+📝 Additional Info:
+Sub-agents automate AI-driven processes inside Claude Code, while MCP Tools handle integrations with external tools or APIs.
+
+
+
+
+Question 4:
+Why might you create custom slash commands for sub-agents?
+
+Options:
+a. To improve debugging logs
+b. To trigger automated workflows or specific sub-agent actions easily
+c. To manually reset Claude’s memory
+
+Correct Answer:
+To trigger automated workflows or specific sub-agent actions easily
+
+📝 Additional Info:
+Custom slash commands provide shortcuts to call sub-agents or automate workflows—like “/ui-test” or “/design-page.”

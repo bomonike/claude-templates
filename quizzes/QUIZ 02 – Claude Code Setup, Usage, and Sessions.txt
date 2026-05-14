@@ -1,0 +1,84 @@
+TOPIC: Claude Setup
+
+Question 1:
+What is the main purpose of Claude Code in your development workflow?
+
+Options:
+a. To replace your IDE completely
+b. To automate testing scripts
+c. To act as an AI coding assistant that helps you write, debug, and manage code
+
+Correct Answer: c.
+
+📝 Additional Info:
+Claude Code is designed to work alongside your IDE — helping you code smarter, not replacing your tools. It assists in writing, debugging, and maintaining code efficiently using agentic AI.
+
+
+
+
+Question 2:
+Which command is used to create the claude.md file in your project?
+
+Options:
+a. /start
+b. /init
+c. /create
+
+Correct Answer: b.
+
+📝 Additional Info:
+The /init slash command initializes Claude in your project by creating the claude.md file, which acts as the AI’s workspace for context and communication.
+
+
+
+
+Question 3:
+What is the role of the claude.md file?
+
+Options:
+a. It stores project context and interaction history for Claude Code
+b. It runs the project’s main code
+c. It keeps track of package dependencies
+
+Correct Answer: a.
+
+📝 Additional Info:
+The claude.md file stores the conversation history, code context, and relevant instructions — allowing Claude to understand your project and maintain continuity across sessions.
+
+
+
+
+Question 4:
+In Claude Code’s plugin settings, what does Ask Before Edit do?
+
+Options:
+a. Allows Claude to edit code automatically
+b. Prompts for your permission before Claude makes any code changes
+c. Saves your edits to the cloud
+
+Correct Answer: b.
+
+📝 Additional Info:
+The Ask Before Edit setting adds a safety step — Claude proposes changes and waits for your approval before applying them, helping prevent unintended edits.
+
+
+
+
+Question 5:
+How can you access Claude Code if you’re not using Visual Studio Code?
+
+Options:
+a. You cannot access as Claude Code Supports only Visual Studio Code.
+b. Through Claude’s web dashboard only
+c. Through the terminal interface
+
+Correct Answer: c.
+
+📝 Additional Info:
+Claude Code can be accessed through the terminal, making it IDE-agnostic. This means developers can use it in their preferred coding environment, not just VS Code.
+
+
+
+
+
+

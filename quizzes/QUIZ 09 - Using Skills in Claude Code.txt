@@ -1,0 +1,94 @@
+TOPIC: Skills
+
+Question 1:
+Which component of a Claude Code Skill is responsible for 'Level 1' progressive disclosure, allowing the CLI to index the skill without loading full instructions?
+
+Options:
+a. The references/ directory
+b. The YAML frontmatter / METADATA in SKILL.md
+c. The global config.json
+d. The scripts/ folder
+
+Correct Answer: b.
+
+📝 Additional Info:
+The name and description in the YAML frontmatter act as the 'index' that Claude reads at startup to identify when a skill should be triggered.
+
+
+
+Question 2:
+You want to create a skill that ensures every Git commit message follows a specific company format. Where is the most appropriate place to store this skill if you want it available across all your projects?
+
+Options:
+a. Inside Project .claude/skills/ in the project root
+b. Home Directory ~/.claude/skills/
+c. The system environment variables
+
+Correct Answer: b.
+
+📝 Additional Info:
+The home directory path is used for global skills that you want the Claude CLI to recognize regardless of which project folder you are in.
+
+
+
+Question 3:
+What is the primary architectural difference between an Agent Skill and an MCP (Model Context Protocol) server?
+
+Options:
+a. MCP replaces the need for SKILL.md files entirely.
+b. Skills define behavior and logic;  MCP provides connectivity to external data and tools.
+c. Skills are manual; MCP is fully autonomous
+
+Correct Answer: b.
+
+📝 Additional Info:
+Skills are internal 'expertise' modules, while MCP is a protocol for connecting Claude to external systems like databases or APIs.
+
+
+
+Question 4:
+In the context of 'Progressive Disclosure,' what happens at Level 3?
+
+Options:
+a. Claude loads the primary instructions inside SKILL.md.
+b. Claude reads the YAML name and description.
+c. Claude accesses bundled reference files and scripts only when the task requires them.
+
+Correct Answer: c.
+
+📝 Additional Info:
+Level 3 is the deep-dive phase where targeted resources are pulled into the context window on an as-needed basis.
+
+
+
+
+Question 5:
+Why is it considered a 'Best Practice' to keep detailed documentation in separate reference files rather than putting it all in SKILL.md?
+
+Options:
+a. Because SKILL.md has a maximum character limit of 1000.
+b. Claude cannot read Markdown formatting inside a SKILL.md file.
+c. To ensure only relevant content occupies the context window at any given time.
+d. Separate files are required for Claude to use any Python scripts.
+
+Correct Answer: c.
+
+📝 Additional Info:
+Keeping the main SKILL.md lean prevents unnecessary token usage and keeps Claude's immediate focus on high-level logic.
+
+
+
+
+Question 6:
+Which of the following file names is valid for a Claude Code Skill definition?
+
+Options:
+a. skill.md
+b. Skill.md
+c. SKILL.md
+d. CLAUDE.skills
+
+Correct Answer: c.
+
+📝 Additional Info:
+The CLI specifically looks for the all-caps 'SKILL.md' filename to recognize and index the expertise module.
