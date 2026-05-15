@@ -11,33 +11,43 @@
 
 """play_sound.py here.
 
+# Called from ~/.claude/settings.local.json for local execution.
+
 # ONE-TIME setup:
+   git clone https://github.com/bomoniki/claude-templates --depth 1
+   cd claude-templates; cp hooks ~/.claude
+
    uv venv .venv                   # create folder .venv to import packages
    source .venv/bin/activate       # on macOS & Linux
         # ./scripts/activate       # PowerShell only
         # ./scripts/activate.bat   # Windows CMD only
-   uv lock --upgrade               # to latest version available publicly, including SHA-256 hashes
+   uv lock --upgrade               # to latest ver avail., including SHA-256 hashes
    uv sync                         # Install dependencies
 #    uv add pygame.   # instead of pip install pygame
 #    chmod +x play_sound.py
 #
 # ON EVERY RUN:
 #    ./play_sound.py done.wav
+#    ./play_sound.py --verbose done.wav
 """
 # POLICY: Dunder (double-underline) variables readable from CLI outside Python
 __commit_date__ = "2026-05-14"
-__commit_msg__ = "26-05-14 v001 [feat] new in @play_sound.py"
+__commit_msg__ = "26-05-14 v001 [feat] argparse in @play_sound.py"
 __repository__ = "https://github.com/wilsonmar/claude-templates/blob/main/hooks/play_sound.py"
 __status__ = "WORKING: ruff check play_sound.py => All checks passed!"
 
+import argparse
 import os
 import sys
 import time
 import wave
+
+# POLICY: Stop Pygame hello message being displayed when it initializes:
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import pygame
 
 
-def detect_audio_params(file_path):
+def detect_audio_params(file_path) -> tuple[int, int, int, int]:
     """Detect frequency and channels from a WAV file. Returns defaults for non-WAV."""
     ext = os.path.splitext(file_path)[1].lower()
     if ext == ".wav":
@@ -63,6 +73,27 @@ def play_audio(file_path):
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():
         pygame.time.wait(100)
+    return frequency, size, channels, buffer
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments for audio playback."""
+    parser = argparse.ArgumentParser(
+        description="Play an audio file from the local Sounds folder or a provided path."
+    )
+    parser.add_argument(
+        "audio_file",
+        nargs="?",
+        help="Audio file name in the Sounds folder, or an explicit file path.",
+    )
+    parser.add_argument(
+        "-v", "--verbose",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Show playback time and audio metadata after playback (default: disabled).",
+    )
+    return parser.parse_args()
+
 
 if __name__ == "__main__":
 
@@ -70,15 +101,14 @@ if __name__ == "__main__":
 
     # print('\a ASCII ding')   # not loud at all
 
-    # play sounds in ~/Music/Sounds copied from github.com/wilsonmar/python-samples/audio
-    # disconnected.wav        error.wav               rimshot-joke-drum.wav   type.wav                warning.wav
-    # done.wav                jeopardy-theme-song.mp3 sample-1mb.wav          wakeup.wav
+    # play sounds in Sounds folder copied from github.com/wilsonmar/python-samples/audio
 
     # POLICY: To avoid dependency errors, do not reach out of the folder containing this program.
     # POLICY: Play sounds from the Sounds folder in the same folder as this program.
     SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
     SOUNDS_DIR = os.path.join(SCRIPT_DIR, "Sounds")
     DEFAULT_SOUND = "error.wav"
+    args = parse_args()
 
     # Create the Sounds directory if it doesn't exist.
     if not os.path.isdir(SOUNDS_DIR):
@@ -86,12 +116,8 @@ if __name__ == "__main__":
         print(f"Created missing sounds directory: {SOUNDS_DIR}")
 
     # POLICY: If a file_to_play specified by parameter is not found, play a default file.
-    if len(sys.argv) > 2:
-        # Loop to play each file specified:
-        print("Usage: ./play_sound.py [file.wav or file.mp3]")
-        sys.exit(1)
-    elif len(sys.argv) == 2:
-        arg = sys.argv[1]
+    if args.audio_file:
+        arg = args.audio_file
         # If no directory component, prepend the default sounds directory
         if not os.path.dirname(arg):
             file_to_play = os.path.join(SOUNDS_DIR, arg)
@@ -107,14 +133,29 @@ if __name__ == "__main__":
         sys.exit(1)
 
     try:
-        # POLICY: Print the playback time.
+        # POLICY: Print the playback time and audio metadata.
         play_start = time.monotonic()
-        play_audio(file_to_play)
+        frequency, size, channels, buffer = play_audio(file_to_play)
         play_elapsed = time.monotonic() - play_start
-        print(f"{os.path.basename(file_to_play)} {play_elapsed:.2f} seconds.")
+        if args.verbose:
+            print(
+                f"{os.path.basename(file_to_play)} {play_elapsed:.2f} secs, "
+                f"{frequency} Hz, {size} size, {channels} channel(s), {buffer} bytes."
+            )
     except pygame.error as e:
         print(f"Error: pygame failed to play audio: {e}", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
         print(f"Error: Unexpected error playing audio: {e}", file=sys.stderr)
         sys.exit(1)
+
+"""
+disconnected.wav 1.45 secs, 11025 Hz, -8 size, 1 channels, 2048 bytes.
+done.wav 0.52 secs, 11025 Hz, -8 size, 1 channels, 2048 bytes.
+error.wav 0.73 secs, 22050 Hz, -8 size, 1 channels, 4096 bytes.
+jeopardy-theme-song.mp3 33.41 secs, 44100 Hz, -16 size, 2 channels, 4096 bytes.rimshot-joke-drum.wav 2.19 secs, 44100 Hz, -16 size, 2 channels, 8192 bytes.
+type.wav 0.31 secs, 11025 Hz, -8 size, 1 channels, 2048 bytes.
+warning.wav 0.72 secs, 22050 Hz, -8 size, 1 channels, 4096 bytes.
+sample-1mb.wav - file does not start with RIFF id
+wakeup.wav 4.04 secs, 22050 Hz, -8 size, 1 channels, 4096 bytes.
+"""
